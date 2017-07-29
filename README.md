@@ -24,11 +24,11 @@ This tweet is collected and analyzed as following.
 {
     "screen_name": "paka3m",
     "needed": 2,
-    "text":  "#なかよしマッチ 176315 3人！募集中！",
+    "text":  "#なかよしマッチ 176315 2人！募集中！",
 }
 ```
 
-and saved into redis with key ```match:176315```.
+and this json is saved into redis with key ```match:176315```.
 
 ## Installation and Usages
 ### install with go command:
@@ -55,10 +55,11 @@ and... connect other servers or reverse-proxy such as nginx.
 - to apply other cases.
 - to improve analysis alogorithm.
 - to dockerize
+- EX mode
 - ...
 
 ## Link
-This app uses "Umi" as the Web interface the Bootstrap theme. 
+This app uses the Bootstrap theme "Umi".
 https://github.com/NKMR6194/Umi
 
 ## Author
