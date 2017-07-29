@@ -1,6 +1,6 @@
 # llmatch
 ## Description
-llmatch collects and analyzes "#なかよしマッチ" tweets and serve a simple web-app.
+llmatch collects "#なかよしマッチ" tweets and serves a simple webapp.
 
 (llmatch means lovelive-match...)
 
