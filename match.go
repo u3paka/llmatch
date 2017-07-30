@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"html/template"
 	"net/http"
@@ -70,14 +71,19 @@ func main() {
 				})
 
 				t := template.Must(template.ParseGlob(clc.String("template")))
-
 				http.HandleFunc("/html/index.html", func(w http.ResponseWriter, rq *http.Request) {
 					t.ExecuteTemplate(w, "index", nil)
 				})
 				http.HandleFunc("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))).ServeHTTP)
 				http.HandleFunc("/match", func(w http.ResponseWriter, rq *http.Request) {
+					bufb := new(bytes.Buffer)
+					bufb.ReadFrom(rq.Body)
+					body := bufb.String()
+					fmt.Println(body)
+
 					res, err := r.Keys("match:*").Result()
-					if err != nil || len(res) == 0 {
+					if err != nil {
+						fmt.Println(err)
 						return
 					}
 					d := make([]Match, len(res))
